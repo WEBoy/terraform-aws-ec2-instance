@@ -1,7 +1,7 @@
 data "aws_ami" "ubuntu" {
   # Default user for SSH: ubuntu
   most_recent = "true"
-  owners = ["amazon", "786743331197"]
+  owners = ["amazon"]
 
   filter {
     name   = "name"

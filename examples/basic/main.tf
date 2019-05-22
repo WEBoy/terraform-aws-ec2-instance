@@ -30,7 +30,7 @@ module "security_group" {
     "Project" = "SKalinin Terraform test"
   }
   ingress_cidr_blocks = ["0.0.0.0/0"]
-  ingress_rules       = ["all-icmp", "ssh-tcp"]
+  ingress_rules       = ["all-icmp", "ssh-tcp", "winrm-http-tcp", "winrm-https-tcp"]
   egress_rules        = ["all-all"]
 }
 
@@ -42,7 +42,7 @@ resource "aws_eip" "this" {
 module "ec2" {
   source = "../../"
 
-  # instance_count = 2
+  instance_count = 1
 
   name                        = "skalinin-terraform"
   tags = {
@@ -57,7 +57,7 @@ module "ec2" {
 
   root_block_device = [{
     volume_type = "gp2"
-    volume_size = 10
+    volume_size = 50
   }]
 }
 

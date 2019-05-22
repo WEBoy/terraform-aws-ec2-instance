@@ -1,11 +1,11 @@
-data "aws_ami" "amazon_linux" {
-  # Default user for SSH: ec2-user
+data "aws_ami" "windows" {
+  #amazon_windows_2019
   most_recent = true
-  owners = ["amazon"]
+  owners      = ["amazon"]
 
   filter {
-    name = "name"
-    values = ["amzn-ami-hvm-*-x86_64-gp2"]
+    name   = "name"
+    values = ["Windows_Server-2019-English-Full-Base*"]
   }
   filter {
     name   = "virtualization-type"
